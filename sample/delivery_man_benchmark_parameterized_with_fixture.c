@@ -5,7 +5,7 @@ static void* FastDeliveryManFixture_set_up()
 {
     DeliveryMan* d = (DeliveryMan*)malloc(sizeof(DeliveryMan));
     if (d == NULL) return NULL;
-    delivery_man_init(d, 1);
+    delivery_man_init(d, 10);
     return (void*)d;
 }
 

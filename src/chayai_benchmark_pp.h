@@ -42,8 +42,8 @@ C_HAYAI_PRIV_CONCAT7(C_HAYAI_PRIV_BENCHMARK_NAME_PREFIX, fixture_name, _, \
     benchmark_name_arg, \
     runs_arg, \
     iterations_arg) \
-static void C_HAYAI_PRIV_CONCAT2(global_name, _body)(void); \
-static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void); \
+static inline void C_HAYAI_PRIV_CONCAT2(global_name, _body)(void); \
+static inline int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void); \
 void C_HAYAI_PRIV_CONCAT2(global_name, _register)() \
 { \
     static CHayaiBenchmarkDescriptor descriptor; \
@@ -54,7 +54,7 @@ void C_HAYAI_PRIV_CONCAT2(global_name, _register)() \
     descriptor.iterations = (iterations_arg); \
     chayai_register_benchmark(&descriptor); \
 } \
-static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
+static inline int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
 { \
     CHayaiTimePoint startTime; \
     CHayaiTimePoint endTime; \
@@ -66,7 +66,7 @@ static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
     endTime = chayai_clock_now(); \
     return chayai_clock_duration(startTime, endTime); \
 } \
-static void C_HAYAI_PRIV_CONCAT2(global_name, _body)(void)
+static inline void C_HAYAI_PRIV_CONCAT2(global_name, _body)(void)
     
 
 #define C_HAYAI_PRIV_BENCHMARK( \
@@ -102,7 +102,7 @@ C_HAYAI_PRIV_CONCAT2(C_HAYAI_PRIV_BENCHMARK_NAME(fixture_name, benchmark_name),_
     parameters_types) \
 static const unsigned int C_HAYAI_PRIV_CONCAT2(global_name, _runs) = (runs_arg); \
 static const unsigned int C_HAYAI_PRIV_CONCAT2(global_name, _iterations) = (iterations_arg); \
-static void C_HAYAI_PRIV_CONCAT2(global_name, _body) parameters_types
+static inline void C_HAYAI_PRIV_CONCAT2(global_name, _body) parameters_types
 
 
 #define C_HAYAI_PRIV_BENCHMARK_P( \
@@ -123,7 +123,7 @@ C_HAYAI_PRIV_BENCHMARK_P_2( \
     benchmark_name_arg, \
     parameter_name, \
     parameters) \
-static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void); \
+static inline int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void); \
 void C_HAYAI_PRIV_CONCAT2(global_name, _register)() \
 { \
     static CHayaiBenchmarkDescriptor descriptor; \
@@ -139,7 +139,7 @@ void C_HAYAI_PRIV_CONCAT2(global_name, _register)() \
             _iterations); \
     chayai_register_benchmark(&descriptor); \
 } \
-static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
+static inline int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
 { \
     CHayaiTimePoint startTime; \
     CHayaiTimePoint endTime; \
@@ -190,8 +190,8 @@ C_HAYAI_PRIV_CONCAT2( \
     benchmark_name_arg, \
     runs_arg, \
     iterations_arg) \
-static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void); \
-static void C_HAYAI_PRIV_CONCAT2(global_name, _body)(void* arg); \
+static inline int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void); \
+static inline void C_HAYAI_PRIV_CONCAT2(global_name, _body)(void* arg); \
 void C_HAYAI_PRIV_CONCAT2(global_name, _register)() \
 { \
     static CHayaiBenchmarkDescriptor descriptor; \
@@ -202,7 +202,7 @@ void C_HAYAI_PRIV_CONCAT2(global_name, _register)() \
     descriptor.iterations = (iterations_arg); \
     chayai_register_benchmark(&descriptor); \
 } \
-static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
+static inline int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
 { \
     CHayaiTimePoint startTime; \
     CHayaiTimePoint endTime; \
@@ -216,7 +216,7 @@ static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
     C_HAYAI_PRIV_CONCAT2(fixture_name_arg, _tear_down)(arg); \
     return chayai_clock_duration(startTime, endTime); \
 } \
-static void C_HAYAI_PRIV_CONCAT2(global_name, _body)(void* arg)
+static inline void C_HAYAI_PRIV_CONCAT2(global_name, _body)(void* arg)
 
 #define C_HAYAI_PRIV_BENCHMARK_F( \
     fixture_name, \
@@ -242,7 +242,7 @@ C_HAYAI_PRIV_BENCHMARK_F_2( \
     parameters_types) \
 static const unsigned int C_HAYAI_PRIV_CONCAT2(global_name, _runs) = (runs_arg); \
 static const unsigned int C_HAYAI_PRIV_CONCAT2(global_name, _iterations) = (iterations_arg); \
-static void C_HAYAI_PRIV_CONCAT2(global_name, _body) parameters_types
+static inline void C_HAYAI_PRIV_CONCAT2(global_name, _body) parameters_types
 
 #define C_HAYAI_PRIV_BENCHMARK_P_F( \
     fixture_name, \
@@ -263,7 +263,7 @@ C_HAYAI_PRIV_BENCHMARK_P_F_2( \
     benchmark_name_arg, \
     parameter_name, \
     parameters) \
-static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void); \
+static inline int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void); \
 void C_HAYAI_PRIV_CONCAT2(global_name, _register)() \
 { \
     static CHayaiBenchmarkDescriptor descriptor; \
@@ -279,7 +279,7 @@ void C_HAYAI_PRIV_CONCAT2(global_name, _register)() \
             _iterations); \
     chayai_register_benchmark(&descriptor); \
 } \
-static int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
+static inline int64_t C_HAYAI_PRIV_CONCAT2(global_name, _run)(void) \
 { \
     CHayaiTimePoint startTime; \
     CHayaiTimePoint endTime; \

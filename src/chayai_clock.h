@@ -72,6 +72,11 @@ typedef struct timeval CHayaiTimePoint;
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 /// Get the current time as a time point.
 /// @returns the current time point.
 CHayaiTimePoint chayai_clock_now();
@@ -83,5 +88,10 @@ CHayaiTimePoint chayai_clock_now();
 /// @returns the number of nanoseconds elapsed between the two time
 /// points.
 int64_t chayai_clock_duration(CHayaiTimePoint startTime, CHayaiTimePoint endTime);
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif // CHAYAI_CLOCK_H

@@ -8,6 +8,8 @@
 #include "chayai_benchmark_result.h"
 #include "chayai_console_outputter.h"
 
+#include "chayai_benchmarker.h"
+
 
 static CHayaiBenchmarkDescriptor* firstBenchmarkDescriptor = NULL;
 static CHayaiBenchmarkDescriptor* lastBenchmarkDescriptor;

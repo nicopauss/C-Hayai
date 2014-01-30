@@ -17,14 +17,24 @@ typedef enum CHayaiConsoleColor
 } CHayaiConsoleColor;
 
 
-int chayai_console_change_color(FILE* stream, CHayaiConsoleColor color);
-
-#if defined(HAYAI_NO_COLOR) 
+#if defined(CHAYAI_NO_COLOR) 
 
 inline static int chayai_console_change_color(FILE* stream, CHayaiConsoleColor color)
 {
     return 0;
 }
+
+#else
+
+# ifdef __cplusplus
+extern "C" {
+# endif
+
+int chayai_console_change_color(FILE* stream, CHayaiConsoleColor color);
+
+# ifdef __cplusplus
+}
+# endif
 
 #endif
 

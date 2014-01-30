@@ -3,7 +3,7 @@
 
 
 // Windows
-#if defined(_WIN32) && !defined(HAYAI_NO_COLOR)
+#if defined(_WIN32) && !defined(CHAYAI_NO_COLOR)
 
 
 #ifndef NOMINMAX
@@ -58,7 +58,7 @@ int chayai_console_change_color(FILE* stream, CHayaiConsoleColor color)
 
 
 // Linux or others
-#elif !defined(HAYAI_NO_COLOR) 
+#elif !defined(CHAYAI_NO_COLOR) 
 
 
 int chayai_console_change_color(FILE* stream, CHayaiConsoleColor color)

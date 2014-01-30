@@ -14,7 +14,7 @@ BENCHMARK_P(DeliveryMan, DeliverPackage, 10, 100,
 {
 	DeliveryMan d;
 	delivery_man_init(&d, speed);
-	delivery_man_deliver_package(&d, distance);;
+	delivery_man_deliver_package(&d, distance);
 }
 
 BENCHMARK_P_INSTANCE(DeliveryMan, DeliverPackage, 1, (1, 10));

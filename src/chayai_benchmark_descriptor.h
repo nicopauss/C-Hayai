@@ -6,8 +6,8 @@
 typedef struct CHayaiBenchmarkDescriptor
 {
     int64_t (*runFunction)(void);
-    char* fixtureName;
-    char* benchmarkName;
+    const char* fixtureName;
+    const char* benchmarkName;
     unsigned int runs;
     unsigned int iterations;
     
